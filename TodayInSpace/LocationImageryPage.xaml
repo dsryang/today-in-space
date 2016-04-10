@@ -1,0 +1,48 @@
+﻿<Page
+    x:Class="TodayInSpace.LocationImageryPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TodayInSpace"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Maps="using:Windows.UI.Xaml.Controls.Maps"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+          Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <TextBlock x:Name="TextBlockHeader" 
+                   Text="Location Imagery" 
+                   FontSize="24"
+                   Margin="0,10,0,0" />
+        <AutoSuggestBox TextChanged="AutoSuggestBox_TextChanged" 
+                        SuggestionChosen="AutoSuggestBox_SuggestionChosen"
+                        Margin="0,10,0,10"
+                        Grid.Row="1"
+                        PlaceholderText="Enter a location...">
+            <AutoSuggestBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Path=Address.FormattedAddress}" />
+                    </StackPanel>
+                </DataTemplate>
+            </AutoSuggestBox.ItemTemplate>
+        </AutoSuggestBox>
+        <Maps:MapControl Grid.Row="2" 
+                         x:Name="MapControlLocation" 
+                         HorizontalAlignment="Stretch"
+                         ZoomLevel="15"
+                         LandmarksVisible="False"/>
+        <Button x:Name="ButtonFindImagery" 
+                Content="Find Location Imagery"
+                Click="ButtonFindImagery_Click" 
+                HorizontalAlignment="Center"
+                Margin="10"
+                Grid.Row="3"/>
+    </Grid>
+</Page>

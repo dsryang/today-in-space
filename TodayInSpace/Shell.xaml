@@ -1,0 +1,52 @@
+﻿<Page
+    x:Class="TodayInSpace.Shell"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TodayInSpace"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="SplitViewStyles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <SplitView x:Name="SplitViewMain" 
+               DisplayMode="CompactOverlay"
+               IsPaneOpen="False" 
+               CompactPaneLength="48" 
+               OpenPaneLength="200"
+               PaneBackground="{ThemeResource SplitViewBackgroundBrush}">
+        <SplitView.Pane>
+            <StackPanel>
+                <RadioButton Style="{StaticResource SplitViewMenuButtonStyle}" 
+                             Click="HamburgerButton_Click" />
+                <RadioButton x:Name="AstronomyPictureRadioButton" 
+                             Tag="&#xE158;" 
+                             Content="Astronomy Picture" 
+                             Style="{StaticResource SplitViewNavButtonStyle}" 
+                             Checked="AstronomyPictureRadioButton_Checked" 
+                             IsChecked="True" />
+                <RadioButton x:Name="LocationImageryRadioButton" 
+                             Tag="&#xE913;" 
+                             Content="Location Imagery" 
+                             Style="{StaticResource SplitViewNavButtonStyle}" 
+                             Checked="LocationImageryRadioButton_Checked" />
+                <RadioButton x:Name="MarsRoverRadioButton" 
+                             Tag="&#xE909;" 
+                             Content="Mars Rover" 
+                             Style="{StaticResource SplitViewNavButtonStyle}" 
+                             Checked="MarsRoverRadioButton_Checked" />
+                <RadioButton x:Name="SettingsRadioButton" 
+                             Tag="&#xE713;" 
+                             Content="Settings" 
+                             Style="{StaticResource SplitViewNavButtonStyle}" 
+                             Checked="SettingsRadioButton_Checked" />
+            </StackPanel>
+        </SplitView.Pane>
+    </SplitView>
+</Page>
